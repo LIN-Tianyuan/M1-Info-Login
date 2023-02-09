@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="../static/login.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <embed src="../static/login.svg" type="image/svg+xml" width="100%" height="90%"/>
+      </div>
+      <form name="myForm" action="show" method="post" id="form-submit">
+        <label for="username">Identifiant:</label>
+        <input type="text" id="username" name="username"/>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password"/>
+        <div class="error-message"></div>
+        <div class="btn-container">
+          <button class="btn reset-btn" type="reset">Reset</button>
+          <button class="btn submit-btn" type="button" onclick="check()">Ok</button>
+          <button class="btn add-account-btn" type="button" onclick="check2()" id="go">Ajout Compte</button>
+        </div>
+      </form>
+    </div>
+  </body>
+
+<script>
+    function check(){
+        var username=document.forms["myForm"]["username"].value;
+        var password=document.forms["myForm"]["password"].value;
+
+        if (username==null || username=="")
+        {
+          alert("Username must be filled in");
+          return false;
+        }
+
+        if (password==null || password=="")
+        {
+          alert("Password must be filled in");
+          return false;
+        }
+        return true;
+    }
+
+    function check2(){
+      var form_submit = document.getElementById('form-submit');
+      var go = document.getElementById("go");
+      if( document.myForm.username.value == ""){
+          window.alert("Username cannot be empty!");
+      }else if(document.myForm.password.value == ""){
+          window.alert("Password cannot be empty!");
+      } else{
+          document.myForm.submit();
+      }
+
+    }
+</script>
+</html>
