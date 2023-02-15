@@ -20,6 +20,7 @@
           <button class="btn submit-btn" type="button" onclick="check()">Ok</button>
           <button class="btn add-account-btn" type="button" onclick="check2()" id="go">Ajout Compte</button>
         </div>
+        <p id="pp"></p>
       </form>
     </div>
   </body>
@@ -28,19 +29,35 @@
     function check(){
         var username=document.forms["myForm"]["username"].value;
         var password=document.forms["myForm"]["password"].value;
+        var isShowUsername = false;
+        var isShowPassword = false;
+        var isShow = false;
 
-        if (username==null || username=="")
-        {
+        if (username==null || username=="") {
           alert("Username must be filled in");
-          return false;
+        } else {
+          isShowUsername = true;
         }
 
         if (password==null || password=="")
         {
           alert("Password must be filled in");
-          return false;
+        } else {
+          isShowPassword = true;
         }
-        return true;
+
+        if(isShowPassword && isShowUsername) {
+          isShow = true;
+        }
+        var box = document.getElementById('pp');
+        if (isShow) {
+          box.innerText = "Correct input of information!";
+          box.setAttribute("style","margin-top: 20px");
+        } else {
+          box.innerText = "Error, please check!";
+          box.setAttribute("style","margin-top: 20px");
+        }
+        return isShow;
     }
 
     function check2(){

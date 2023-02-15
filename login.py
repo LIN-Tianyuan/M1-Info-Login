@@ -3,9 +3,12 @@ import pymysql
 from hashlib import md5
 app = Flask(__name__)
 
+user = 'root'
+password= ''
+
 db = pymysql.connect(host='localhost',
-                     user='root',
-                     password='',
+                     user=user,
+                     password=password,
                      database='documents')
 cursor = db.cursor()
 
